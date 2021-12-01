@@ -31,6 +31,15 @@ describe('test in ApiServices', ()=> {
             { resource: '/movie', slug: `1885/reviews?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`}
         );
         const { results } = await data;
-        expect(results.length).toBe(results.length);
+        expect(results?.length).toBe(results.length);
+    });
+
+    test('Testing ApiService.post()', async ()=> {
+        const payload: Object = {
+            value: 8.5
+        }
+        const { data } = await ApiService.post({ resource:`/movie/1885/rating?api_key=${process.env.REACT_APP_API_KEY}&guest_session_id=${process.env.REACT_APP_GUEST_SESSION_ID}`, params: payload });
+        const { success } = await data;
+        expect(success).toBe(true);
     });
 });
