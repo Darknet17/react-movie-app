@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import ApiService from "./core/services/api.service";
 import MovieApp from './MovieApp';
 import reportWebVitals from './reportWebVitals';
-
+ApiService.init();
 ReactDOM.render(
   <React.StrictMode>
     <MovieApp />
